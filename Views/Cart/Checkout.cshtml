@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<!-- Page Info -->
+<div class="page-info-section page-info">
+    <div class="container">
+        <div class="site-breadcrumb">
+            <a href="">Home</a> /
+            <a href="">Sales</a> /
+            <a href="">Bags</a> /
+            <a href="">Cart</a> /
+            <span>Checkout</span>
+        </div>
+        <img src="~/img/page-info-art.png" alt="" class="page-info-art">
+    </div>
+</div>
+<!-- Page Info end -->
+<!-- Page -->
+<div class="page-area cart-page spad">
+    <div class="container">
+        <div class="checkout-form">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="order-card">
+                        <div class="order-details">
+                            <div class="od-warp">
+                                <h4 class="checkout-title">Your order has been stored!</h4>
+                                <table class="order-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Order Reference Number</th>
+                                            <th>@ViewBag.orderID</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>SubTotal</td>
+                                            <td>@ViewBag.total</td>
+                                        </tr>
+                                        <tr class="cart-subtotal">
+                                            <td>Shipping</td>
+                                            <td>Free</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr class="order-total">
+                                            <th>Total</th>
+                                            <th>@ViewBag.total</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="order-card">
+                        <div class="order-details">
+                            <div class="od-warp">
+                                <h4 class="checkout-title">Your order:</h4>
+                                <table class="order-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Quantity</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in ViewBag.cart)
+                                        {
+                                            <tr>
+                                                <td>@item.ProductName</td>
+                                                <td>@item.Quantity</td>
+                                            </tr>
+                                        }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page -->
